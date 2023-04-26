@@ -8,20 +8,14 @@ import requests
 import urllib
 import urllib.request
 from bs4 import BeautifulSoup
-from csv import writer
-from google_images_search import GoogleImagesSearch
 import time
 import sys
 from PIL import Image
-import subprocess
 import tkinter as tk
 from PIL import Image, ImageTk
 from itertools import count
-from icrawler.builtin import GoogleImageCrawler
-import sqlite3
 import nltk
 from nltk.stem import WordNetLemmatizer
-
 from nltk.corpus import wordnet
 
 lemmatizer = WordNetLemmatizer()
@@ -47,7 +41,6 @@ CX = '1723d9a3e6f374592'
 
 
 letters = ['you','hello','q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P', 'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'Z', 'X', 'C', 'V', 'B', 'N', 'M']
-gis = GoogleImagesSearch(DK, CX)
 def get_img(searchfor):
 
     uri = 'https://res.cloudinary.com/spiralyze/image/upload/f_auto,w_auto/BabySignLanguage/DictionaryPages/'+searchfor+'.svg'
@@ -111,7 +104,7 @@ def recognize():
 
 
 
-
+'''
 def show_img(file):
     
     class ImageLabel(tk.Label):
@@ -167,7 +160,7 @@ def show_img(file):
                 lbl.load('images/'+i+'.jpg')
     root.after(3000,lambda:root.destroy())
     root.mainloop()
-'''
+
 text = recognize()
 text_tokens = word_tokenize(text)
 print(text_tokens)

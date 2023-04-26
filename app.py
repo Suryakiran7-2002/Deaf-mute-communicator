@@ -9,7 +9,6 @@ import soundfile
 import os.path
 import av
 from s2e import *
-
 mp_holistic = mp.solutions.holistic # Holistic model
 mp_drawing = mp.solutions.drawing_utils # Drawing utilities
 
@@ -38,8 +37,7 @@ class detect_sign(VideoTransformerBase):
                 result = model.predict(np.expand_dims(sequence, axis=0),verbose=None)[0]
                 pred = actions[np.argmax(result)]
                 print(pred)
-                with placeholder.container():
-                    st.write("This is one element")
+                
         return av.VideoFrame.from_ndarray(image, format="bgr24")
 
 def main():
