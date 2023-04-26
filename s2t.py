@@ -1,18 +1,10 @@
 import speech_recognition
-import pyttsx3
-import nltk
 from nltk.tokenize import word_tokenize
 import os
-import sys
 import requests
 import urllib
 import urllib.request
 from bs4 import BeautifulSoup
-import time
-import sys
-from PIL import Image
-from PIL import Image, ImageTk
-from itertools import count
 import nltk
 from nltk.stem import WordNetLemmatizer
 from nltk.corpus import wordnet
