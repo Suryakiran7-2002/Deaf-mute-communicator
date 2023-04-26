@@ -90,6 +90,7 @@ sounddevice==0.4.6
 soundfile==0.12.1
 soupsieve==2.4.1
 SpeechRecognition==3.10.0
+streamlit
 streamlit==1.21.0
 streamlit-audiorecorder==0.0.2
 streamlit-webrtc==0.45.0
