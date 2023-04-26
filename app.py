@@ -1,5 +1,7 @@
 import numpy as np
 import streamlit as st
+import nltk
+nltk.download('punkt')
 from audiorecorder import audiorecorder
 from streamlit_webrtc import webrtc_streamer, VideoTransformerBase, RTCConfiguration, VideoProcessorBase, WebRtcMode
 from s2t import *
