@@ -11,7 +11,6 @@ from bs4 import BeautifulSoup
 import time
 import sys
 from PIL import Image
-import tkinter as tk
 from PIL import Image, ImageTk
 from itertools import count
 import nltk
