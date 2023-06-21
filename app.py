@@ -1,7 +1,7 @@
 import numpy as np
 import streamlit as st
 import nltk
-nltk.download('all')
+nltk.download('punkt')
 from audiorecorder import audiorecorder
 from streamlit_webrtc import webrtc_streamer, VideoTransformerBase, RTCConfiguration, VideoProcessorBase, WebRtcMode
 from s2t import *
@@ -11,12 +11,15 @@ import soundfile
 import os.path
 import av
 from s2e import *
+import time
 mp_holistic = mp.solutions.holistic # Holistic model
 mp_drawing = mp.solutions.drawing_utils # Drawing utilities
 
 
-RTC_CONFIGURATION = RTCConfiguration({"iceServers": [{"urls": ["stun:stun.l.google.com:19302"]}]})
-
+#RTC_CONFIGURATION = RTCConfiguration({"iceServers": [{"urls": ["stun:stun.l.google.com:19302"]}]})
+RTC_CONFIGURATION = RTCConfiguration(
+    {"iceServers": [{"urls": ["stun:stun.l.google.com:19302"]}]}
+)
 sequence = []
 sentence = []
 threshold = 0.8
@@ -71,7 +74,9 @@ def main():
         placeholder = st.empty()
             
         if st.button('listen'):
-            st.audio('s.mp3')
+            while(True):
+                st.text('text')
+                time.sleep(5)
 
     elif choice == "Speech to Sign Language":
         st.subheader("Speech to Sign Language")
@@ -129,9 +134,10 @@ def main():
                     get_gif(t)
             
             for t in tokens_without_sw:
+                st.write(t)
                 if t == 'I' or t == 'i' or t == 'me':
                     t = 'my'
-                st.write(t)
+                
                 try:
                     file_ = open('images/'+t+'.gif', "rb")
                     contents = file_.read()

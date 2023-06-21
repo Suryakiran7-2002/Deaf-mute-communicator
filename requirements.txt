@@ -72,6 +72,7 @@ pylibsrtp==0.8.0
 Pympler==1.0.1
 pyOpenSSL==23.1.1
 pyparsing==3.0.9
+pypiwin32==223
 pyrsistent==0.19.3
 python-dateutil==2.8.2
 pyttsx3==2.90
@@ -90,7 +91,6 @@ sounddevice==0.4.6
 soundfile==0.12.1
 soupsieve==2.4.1
 SpeechRecognition==3.10.0
-streamlit
 streamlit==1.21.0
 streamlit-audiorecorder==0.0.2
 streamlit-webrtc==0.45.0

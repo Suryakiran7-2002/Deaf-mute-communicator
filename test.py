@@ -1,21 +1,14 @@
+import cv2
 import streamlit as st
-from streamlit_webrtc import webrtc_streamer
-import base64
-l=['a','b','c','dance','how']
 
+st.title("Webcam Live Feed")
+run = st.checkbox('Run')
+FRAME_WINDOW = st.image([])
+camera = cv2.VideoCapture(0)
 
-for t in l:
-    try:
-        
-        
-        file_ = open('images/'+t+'.gif', "rb")
-        contents = file_.read()
-        data_url = base64.b64encode(contents).decode("utf-8")
-        file_.close()
-
-        st.markdown(
-            f'<img src="data:image/gif;base64,{data_url}" alt="">',
-            unsafe_allow_html=True)
-    except:
-        
-        st.image('images/'+t+'.jpg',width = 720)
+while run:
+    _, frame = camera.read()
+    frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+    FRAME_WINDOW.image(frame)
+else:
+    st.write('Stopped')
